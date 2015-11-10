@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class= "page-wrap">
+			<head>
+  			<title>Expenses</title>
+  			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  			<%= csrf_meta_tags %>
+			</head>
+			<header>
+				<h1>Expenses</h1>
+				<%= link_to 'Home', root_path %>
+				<%= link_to 'View All', expenses_path %>
+				<%= link_to 'Add New', new_expense_path %>
+			</header>
+		<%= yield %>
+		<% if user_signed_in? %>
+			<footer class = "site-footer">
+					<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+					<% end %>
+			</footer>
+		</div>
+	</body>
+</html>
