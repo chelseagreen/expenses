@@ -11,27 +11,26 @@
         </ul>
     </div>
 <% end %>
+    <p>
+        <%= f.label :date %><br>
+        <%= f.date_select :date %>
+    </p>
+    <label for="item">Item</label>
+    <input type="item" class="form-control" id="item" placeholder="item">
+    <p>
+        <%= f.label :cost %><br>
+        <%= f.text_area :cost %>
+    </p>
+    <p>
+        <%= f.label :category %><br>
+        <%= f.text_area :category %>
+    </p>
+    <p>
+        <%= f.label :comments %><br>
+        <%= f.text_area :comments %>
+    </p>
+</div>
 <p>
-    <%= f.label :item %><br>
-    <%= f.text_area :item %>
-</p>
-<p>
-    <%= f.label :cost %><br>
-    <%= f.text_area :cost %>
-</p>
-<p>
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-</p>
-<p>
-    <%= f.label :category %><br>
-    <%= f.text_area :category %>
-</p>
-<p>
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-</p>
-<p>
-    <%= f.submit %>
+    <button type="submit" class="btn btn-success">Save</button>
 </p>
 <% end %>
