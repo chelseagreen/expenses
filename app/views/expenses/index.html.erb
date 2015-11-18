@@ -7,19 +7,20 @@
             <th><%= sortable "category" %></th>
         </tr>
 
-<% @expenses.each do |expense| %>
-<tr>
-    <td><%= expense.item %></td>
-    <td><%= expense.cost %></td>
-    <td><%= expense.date %></td>
-    <td><%= expense.category %></td>
-    <td><%= link_to ' View ', expense_path(expense), class: 'btn btn-primary btn-xs' %></td>
-    <td><%= link_to ' Edit ', edit_expense_path(expense), class: 'btn btn-default btn-xs' %></td>
-    <td><%= link_to ' Delete ', expense_path(expense), class: 'btn btn-default btn-xs', 
-        method: :delete,
-        data: { confirm: 'Are you sure you want to delete this item?'} %></td>
-</tr>
-<% end %>
+        <% @expenses.each do |expense| %>
+        <tr>
+            <td><%= expense.item %></td>
+            <td><%= expense.cost %></td>
+            <td><%= expense.date %></td>
+            <td><%= expense.category %></td>
+            <td><%= link_to ' View ', expense_path(expense), class: 'btn btn-primary btn-xs' %></td>
+            <td><%= link_to ' Edit ', edit_expense_path(expense), class: 'btn btn-default btn-xs' %></td>
+
+            <td><%= link_to ' Delete ', expense_path(expense), class: 'btn btn-default btn-xs', 
+            method: :delete,
+            data: { confirm: 'Are you sure you want to delete this item?'} %></td>
+        </tr>
+        <% end %>
     </table>
 </div>
 

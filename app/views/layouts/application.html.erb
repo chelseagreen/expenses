@@ -7,27 +7,35 @@
   				<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   				<%= csrf_meta_tags %>
 			</head>
-				<header class="header">
+			<nav class="navbar navbar-default">
+				<div class="container">
         			<div class="col-xs-5">
-        			<div class="left">
-						Expenses
-					</div></div>
-					<div class="middle">
-					<div class="col-xs-5">
-						<%= link_to 'Home', root_path, class: "btn btn-default btn-sm" %>
-						<%= link_to 'View All', expenses_path, class: "btn btn-default btn-sm" %>
-						<%= link_to 'Add New', new_expense_path, class: "btn btn-default btn-sm" %>
+        				<div class="left">
+							Expenses
+						</div>
 					</div>
-					<% if user_signed_in? %>
-					<div class="col-xs-1">
-						<%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm" %>
-					</div></div>
-					<% end %> 
-				</header>
+					<div class="middle">
+						<div class="col-xs-5">
+							<%= link_to 'Home', root_path, class: "btn btn-default btn-sm" %>
+							<% if user_signed_in? %>
+							<%= link_to 'View All', expenses_path, class: "btn btn-default btn-sm" %>
+							<%= link_to 'Add New', new_expense_path, class: "btn btn-default btn-sm" %>
+							<% end %>
+							<% if !user_signed_in? %>
+							<%= link_to 'Login', user_session_path, class: "btn btn-success btn-sm"%>
+							<%= link_to 'New User', new_user_session_path, class: "btn btn-warning btn-sm"%>
+							<% end %> 
+
+						</div>
+					</div>
+				</div>
+			</nav>
 
 			<%= yield %>
-			<footer class = "site-footer">
-					Thank you for using expenses!
-			</footer> 
+			<% if user_signed_in? %>
+				<footer>
+					<%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm" %>
+				</footer>
+			<% end %> 
 	</body>
 </html>
